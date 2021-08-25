@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        <form action="/" method="post">
+            <div>
+                <label for="username">Username</label>
+                <input type="text" name="username">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password">
+            </div>
+            <div>
+                <canvas id="captcha" width="200" height="100" style="border:1px solid black"></canvas>
+                <input type="text" name="response">
+                <button onClick="window.location.reload();">New Captcha</button>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        var c = document.getElementById("captcha");
+        var ctx = c.getContext("2d");
+        ctx.font = "30px Arial";
+        ctx,textAlign = "center";
+        ctx.strokeText('<%= captcha %>',10,50);
+    </script>
+</body>
+</html>
