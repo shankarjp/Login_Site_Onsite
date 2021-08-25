@@ -6,6 +6,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
 var captcha = "";
+var dept = [1061, 1081, 1091, 1011, 1031, 1041, 1081];
+var year = new Date().getFullYear();
 
 app.get("/", (req, res) => {
     captcha = "";
@@ -23,7 +25,7 @@ app.post("/", (req, res) => {
     var password = req.body.password;
     var response = req.body.response;
     var count = 0;
-    if((username.toString().length !== 9) || (parseInt(username.toString().slice(6,9)) > 200)) {
+    if((username.toString().length !== 9) || (parseInt(username.toString().slice(6,9)) > 200) || !(dept.includes(parseInt(username.toString().slice(0,4)))) || (parseInt(year.toString().slice(2,4)) <= parseInt(username.toString().slice(4,6)))) {
         console.log("Invalid Username");
         count += 1;
     };
