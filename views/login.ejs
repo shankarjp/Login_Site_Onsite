@@ -29,6 +29,12 @@
         ctx.font = "30px Arial";
         ctx,textAlign = "center";
         ctx.strokeText('<%= captcha %>',10,50);
+        for(var i=0; i<20; i++) {
+            ctx.beginPath();
+            ctx.moveTo(Math.random()*200, Math.random()*100);
+            ctx.bezierCurveTo(Math.random()*200,Math.random()*200,Math.random()*200,Math.random()*200,Math.random()*200,Math.random()*200);
+            ctx.stroke();
+        };
     </script>
 </body>
 </html>
